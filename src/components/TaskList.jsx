@@ -21,28 +21,31 @@ const TaskList = (props) => {
       <div className="job-list">
         {
           _(props.tasks).filter((t) => {
-            return props.filter ? !t.userId : true
-          }).map((t, i) => {
-            return <div
-              key={i}
-              className={"job-container " + (_.get(props, "selectedTask.id") === t.id ? "selected" : "")}
-              onClick={(e) => props.onTaskClick(t)}
-            >
-              <div className="job-item">{t.description}</div>
-              {
-                !props.filter ?
-                  <div style={{ display: "flex" }}>
-                    <div className="assignee">
-                      {
-                        t.userId ? _.get(_.find(props.users, { id: t.userId }), 'firstname') : 'Kimse atanmadı'
-                      }
+              return props.filter ? !t.userId : true
+            }).map((t, i) => {
+              let user = _.find(props.users, { id: t.userId });
+              return <div
+                key={i}
+                className={"job-container " + (_.get(props, "selectedTask.id") === t.id ? "selected" : "")}
+                onClick={(e) => props.onTaskClick(t)}
+              >
+                <div className="job-item">{t.description}</div>
+                {
+                  !props.filter ?
+                    <div style={{ display: "flex" }}>
+                      <div className="assignee">
+                        {
+                          t.userId
+                            ? _.get(user, 'firstname') + ' ' + _.get(user, 'lastname') 
+                            : 'Kimse atanmadı'
+                        }
+                      </div>
+                      <div className="delete-button" onClick={(e) => props.onClickTaskDelete(t.id)}>sil</div>
                     </div>
-                    <div className="delete-button" onClick={(e) => props.onClickTaskDelete(t.id)}>sil</div>
-                  </div>
-                  : null
-              }
-            </div>
-          }).value()
+                    : null
+                }
+              </div>
+            }).value()
         }
       </div>
     </div>

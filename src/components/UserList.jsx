@@ -29,7 +29,7 @@ const UserList = (props) => {
           {
             _.map(props.users, (u, i) => {
               return <tr key={i} className={i % 2 === 0 ? "even" : "odd"}>
-                <td className="name-surname-column">{u.firstname}</td>
+                <td className="name-surname-column">{u.firstname + " " + u.lastname}</td>
                 <td className="task-count-column">
                   {_.filter(props.tasks, { userId: u.id }).length}
                 </td>
