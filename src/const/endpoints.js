@@ -3,6 +3,3 @@ export const getAllHouses = "/houses";
 export const registerAndLogin = "/login";
 export const getUsersByHouseId = "/houses/%houseID%/users";
 export const getTasksByHouseId = "/houses/%houseID%/tasks";
-export const addNewTask = "/tasks";
-export const updateTask = "/tasks/%taskID%";
-export const deleteTaskById = "/tasks/%taskID%";
