@@ -28,7 +28,7 @@ import { CircleLoader } from 'react-spinners';
 			<input className={props.validate && !props.surName ? "common-input-error" : "common-input" } type="text" value={props.surname} placeholder="Soyad" name='surName' onChange={(e)=>{props.handleChange("surName",e.target.value)}} />
 			{
 				props.validate && !props.surName &&
-        		<div className="help-block">Soyisim seçmelisiniz ve en az 6 karakter olmalıdır !</div>
+        		<div className="help-block">Soyisim girmelisiniz !</div>
             }
 			<select onChange={(e)=>{props.handleChange("selectedHome",e.target.value)}} className={props.validate && !props.selectedHome ? "common-input-error" : "common-input" }>{!props.selectedHome ?
 			<option selected disabled>Ev Seçiniz</option>
