@@ -14,7 +14,6 @@ class App extends Component {
 				<Route exact path="/" component={LoginPage} />
 				<Route path="/home" component={HomePage} />
 			</Switch>
-
     );
   }
 }
